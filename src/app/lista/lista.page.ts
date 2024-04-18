@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe/recipe.model';
 import { RecipeService } from '../recipe/recipe.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista',
@@ -11,16 +12,18 @@ export class ListaPage implements OnInit {
 
   recipes: Recipe[] = [];
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(private router: Router, private recipeService: RecipeService) {}
 
   ngOnInit() {
     this.recipes = this.recipeService.getAllRecipes();
   }
 
   getRecipeImage(recipeId: number): string {
-    // Here, you can define logic to return the image path based on the recipe ID
-    // For example, if you have images named by recipe ID, you can return the path like this:
     return `assets/resources/recipe_${recipeId}.png`;
+  }
+
+  navigateToDetails(recipeId : number){
+    this.router.navigate(['/detalhe', recipeId]);
   }
 
 }

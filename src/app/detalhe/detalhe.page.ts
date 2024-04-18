@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Recipe } from '../recipe/recipe.model';
+import { ActivatedRoute } from '@angular/router';
+import { RecipeService } from '../recipe/recipe.service';
 
 @Component({
   selector: 'app-detalhe',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetalhePage implements OnInit {
 
-  constructor() { }
+   recipe: Recipe | undefined;
+
+  constructor(private route : ActivatedRoute, private recipeService: RecipeService) { }
 
   ngOnInit() {
+    const recipeId = +this.route.snapshot.paramMap.get('id')!;
+    if (recipeId) {
+      this.recipe = this.recipeService.getRecipeById(recipeId);
+    }
   }
+
+  getRecipeImage(recipeId: number): string {
+    return `assets/resources/recipe_${recipeId}.png`;
+  }
+
 
 }

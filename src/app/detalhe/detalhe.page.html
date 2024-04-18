@@ -1,13 +1,63 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>detalhe</ion-title>
+    <ion-title>Detalhe</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" *ngIf="recipe">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">detalhe</ion-title>
+      <ion-title size="large">Detalhe</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
     </ion-toolbar>
   </ion-header>
+
+  <ion-img [src]="getRecipeImage(recipe.id)" class = "detail-img"></ion-img>
+
+  <ion-accordion-group [multiple]="true" [value]="['first', 'second', 'third']">
+    
+    <ion-accordion value="first">
+      <ion-item slot="header" color="light">
+        <ion-label>Contexto histórico</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">First Content</div>
+    </ion-accordion>
+
+    <ion-accordion value="second">
+      <ion-item slot="header" color="light">
+        <ion-label>Ingredientes</ion-label>
+      </ion-item>
+      <div class="ion-padding" slot="content">
+        <ion-list *ngIf="recipe.ingredients">
+          <ion-item *ngFor="let ingredient of recipe.ingredients">
+            <ion-label>{{ ingredient.name }}</ion-label>
+            <ion-label slot="end" style="text-align: left;">{{ ingredient.quantity }}</ion-label>
+          </ion-item>
+        </ion-list>
+        <p *ngIf="!recipe.ingredients">Sem Ingredientes.</p>
+      </div>
+    </ion-accordion>
+
+    <ion-accordion value="third">
+      <ion-item slot="header" color="light">
+        <ion-label>Método de preparo</ion-label>
+      </ion-item>
+      <div class="preparation-steps">
+        <!-- Iterate over preparation steps and display each step -->
+        <div *ngFor="let step of recipe.preparation" class="preparation-step">
+          <p>{{ step }}</p>
+        </div>
+      </div>
+    </ion-accordion>
+
+  </ion-accordion-group>
+
+
+
 </ion-content>
+
