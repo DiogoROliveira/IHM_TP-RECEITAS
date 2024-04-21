@@ -4,5 +4,6 @@ export interface Recipe {
     description: string;
     ingredients: {name : string, quantity: string}[];
     preparation: string[];
+    history: string;
   }
   

@@ -21,7 +21,11 @@ const routes: Routes = [
   },
   {
     path: 'detalhe/:id',
-    loadChildren: () => import('./detalhe/detalhe.module').then( m => m.DetalhePageModule)}
+    loadChildren: () => import('./detalhe/detalhe.module').then( m => m.DetalhePageModule)},
+  {
+    path: 'author',
+    loadChildren: () => import('./author/author.module').then( m => m.AuthorPageModule)
+  }
 ];
 
 @NgModule({

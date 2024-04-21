@@ -18,6 +18,7 @@ export class DetalhePage implements OnInit {
     const recipeId = +this.route.snapshot.paramMap.get('id')!;
     if (recipeId) {
       this.recipe = this.recipeService.getRecipeById(recipeId);
+      console.log('Recipe:', this.recipe);
     }
   }
 

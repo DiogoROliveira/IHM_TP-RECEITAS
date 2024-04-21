@@ -1,18 +1,18 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header [translucent]="true" color="custom">
+  <ion-toolbar color="custom">
     <ion-title>Receitas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
+<ion-content [fullscreen]="true" color="light">
+  <ion-header collapse="condense" color="light">
+    <ion-toolbar color = "light">
       <ion-title size="large">Receitas</ion-title>
     </ion-toolbar>
   </ion-header>
 
   
-  <ion-card *ngFor="let recipe of recipes">
+  <ion-card *ngFor="let recipe of recipes" color="custom">
     <img [src]="getRecipeImage(recipe.id)" alt="Recipe Image" class = "card-img">
     <ion-card-header>
       <ion-card-title>{{ recipe.title }}</ion-card-title>
@@ -21,7 +21,7 @@
       {{ recipe.description }}
     </ion-card-content>
     <ion-footer>
-      <ion-button fill="clear" shape="round" (click)="navigateToDetails(recipe.id)">
+      <ion-button fill="clear" shape="round" color="light" (click)="navigateToDetails(recipe.id)">
         Ver receita
       </ion-button>
     </ion-footer>
@@ -29,19 +29,19 @@
 </ion-content>
 
 
-<ion-footer>
-  <ion-toolbar>
+<ion-footer >
+  <ion-toolbar >
     <ion-tabs bottom>
-      <ion-tab-bar slot="bottom">
+      <ion-tab-bar slot="bottom" color="light">
         <ion-tab-button tab="receitas">
           <ion-icon name="restaurant-outline"></ion-icon>
           Receitas
         </ion-tab-button>
-        <ion-tab-button tab="home" routerLink="/home">
+        <ion-tab-button [routerLink]="['/home']">
           <ion-icon name="home-outline"></ion-icon>
           Home
         </ion-tab-button>
-        <ion-tab-button tab="author">
+        <ion-tab-button [routerLink]="['/author']">
           <ion-icon name="person-outline"></ion-icon>
           Autor
         </ion-tab-button>

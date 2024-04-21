@@ -1,18 +1,23 @@
-.preparation-steps {
-    margin-top: 10px;
-  }
-  
-.preparation-step {
-    margin-bottom: 10px; 
-}
 
-.preparation-method {
-    padding: 16px;
+.header-text{
+  background-color: var(--ion-color-custom);
+  color: var(--ion-color-light);
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .detail-img {
-    width: 100%; 
+  width: 100%; 
   height: auto; 
-  border-radius: 10px; 
+  border-radius: 50%; 
   margin-top: 10px;
+}
+
+.accordion-content {
+  background-color: var(--ion-color-custom);
+  color: var(--ion-color-light);
+  padding: 16px;
 }

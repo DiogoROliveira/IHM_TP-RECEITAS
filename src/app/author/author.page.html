@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="custom">
+    <ion-title>
+      Sobre o autor 👤
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding" color="light">
+  <ion-header collapse="condense">
+    <ion-toolbar color="light">
+      <ion-title size="large">Sobre o autor 👤</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="author-profile">
+  <div class="author-avatar-container">
+    <ion-avatar class="author-avatar">
+      <ion-img src="../../assets/resources/avatar.png"></ion-img> 
+    </ion-avatar>
+  </div>
+  <div class="author-details">
+    <h2 class="ion-text-center">Diogo Oliveira</h2>
+    <p class="ion-text-center">Estudante de Engenharia Informática</p>
+    <ion-card color="custom">
+      <ion-card-header>
+        <ion-card-title>Sobre mim</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Olá! Sou o Diogo Oliveira, natural de Viana do Castelo e venho, através desta aplicação, mostrar um pouco da rica cultura gastronômica desta linda cidade.
+        <br>Escolhi algumas das receitas que mais refletem a tradição e o sabor autêntico da nossa região, desde os pratos de carne até aos petiscos de marisco fresco que fazem as delícias de quem aqui vive e visita.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card color="custom">
+      <ion-card-header>
+        <ion-card-title>Outras informações</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Email: diogo.rosas.oliveira&#64;ipvc.pt <br>
+        Número: 29950
+      </ion-card-content>
+    </ion-card>
+    </div>
+  </div>
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+  <ion-tabs>
+    <ion-tab-bar slot="bottom" color="light">
+      <ion-tab-button [routerLink]="['/lista']">
+        <ion-icon name="restaurant-outline"></ion-icon>
+        Receitas
+      </ion-tab-button>
+      <ion-tab-button [routerLink]="['/home']">
+        <ion-icon name="home-outline"></ion-icon>
+        Home
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-icon name="person-outline"></ion-icon>
+        Autor
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-toolbar>
+</ion-footer>

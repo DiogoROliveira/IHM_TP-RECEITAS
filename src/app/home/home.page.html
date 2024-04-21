@@ -1,21 +1,64 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
+  <ion-toolbar color="custom">
+    <ion-title size="large">
+      Bem-Vindo!👋
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" color="light">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+    <ion-toolbar color="light">
+      <ion-title size="large">Bem-Vindo!👋</ion-title>
     </ion-toolbar>
   </ion-header>
+  
+  
+  <ion-card color="custom">
+    <img src="../../assets/resources/home.png" alt="Home Image" style="border-radius: 5%;">
+    <ion-accordion-group [multiple]="true" value="first">
+    <ion-accordion value="first">
+      <ion-item slot="header" color="custom">
+        <ion-label></ion-label>
+      </ion-item>
+      <div class="accordion-content" slot="content">
+          <h1 color="dark">História Gastronômica de Viana do Castelo</h1>
+          <p>Viana do Castelo, uma pitoresca cidade no norte de Portugal, tem uma história gastronômica rica e diversificada, que reflete a sua localização privilegiada entre o mar e a terra. Os pratos tradicionais desta região incorporam ingredientes frescos e técnicas culinárias ancestrais, transmitidas de geração em geração.</p>
+          <p>O peixe fresco é uma estrela indiscutível da gastronomia vianense, graças à proximidade com o Oceano Atlântico. Bacalhau, robalo, pescada e outras variedades são preparados de várias maneiras, desde grelhados simples até guisados mais elaborados, sempre realçando o sabor natural do mar.</p>
+          <img src="../../assets/resources/home_2.png" alt="Home Image">
+          <p>Além do peixe, a carne também desempenha um papel importante na culinária local. Os rojões à moda do minho, um prato emblemático da região, combina pedaços suculentos de carne de porco com batata frita e temperos, resultando em uma iguaria reconfortante e cheia de sabor. Outros pratos de carne, como o cabrito à serra d’Arga, também são apreciados pelos locais e visitantes.</p>
+          <p>A riqueza dos produtos agrícolas da região é evidente em pratos como a sopa à lavrador, uma sopa rica e reconfortante feita com legumes frescos da época, que demonstra a simplicidade e a riqueza dos sabores locais. E, é claro, não se pode esquecer dos doces tradicionais, como as conhecidas rabanadas, o arroz doce e a torta de Viana, que adoçam o paladar dos que visitam esta encantadora cidade.</p>
+          <p>Em conclusão, a história gastronômica de Viana do Castelo é uma celebração da terra, do mar e das tradições culinárias que tornam esta cidade tão especial.</p>
+      </div>
+    </ion-accordion>   
+    </ion-accordion-group>
 
+  </ion-card>
+    
+  <h2 style="font-weight: bold;padding-left: 20px;">Sugestão do dia!🍽️</h2>
+      <ion-card *ngIf="randomRecipe" class="ion-padding" color="custom">
+        <img [src]="getRecipeImage(randomRecipe.id)" alt="Recipe Image" class = "card-img">
+        <ion-card-header>
+          <ion-card-title>{{ randomRecipe.title }}</ion-card-title>
+        </ion-card-header>
+      <ion-card-content>
+        {{ randomRecipe.description }}
+      </ion-card-content>
+        <ion-button fill="clear" (click)="navigateToDetails(randomRecipe.id)" color="light">
+          Ver receita
+        </ion-button>
+    </ion-card>
+  
+
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
   <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="receitas" routerLink="/lista">
+    <ion-tab-bar slot="bottom" color="light">
+      <ion-tab-button [routerLink]="['/lista']">
         <ion-icon name="restaurant-outline"></ion-icon>
         Receitas
       </ion-tab-button>
@@ -23,11 +66,11 @@
         <ion-icon name="home-outline"></ion-icon>
         Home
       </ion-tab-button>
-      <ion-tab-button tab="author">
+      <ion-tab-button [routerLink]="['/author']">
         <ion-icon name="person-outline"></ion-icon>
         Autor
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-
-</ion-content>
+</ion-toolbar>
+</ion-footer>
